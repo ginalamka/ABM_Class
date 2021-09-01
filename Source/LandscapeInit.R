@@ -20,4 +20,3 @@ LandscapeInit = function(elevation){
   }
   return(land)
 }
-land

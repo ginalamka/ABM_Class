@@ -19,6 +19,11 @@ land = LandscapeInit(elevation)
 image(land)
 
 #init individuals on landscape
+pop = NewPop(nindv, landscape)
+#pop = rbind(pop,NewPop(nindv,landscape)) #this will add the different NewPops together
+points(pop[,1], pop[,2], pch=19, cex=0.5)
+plot(-100,-100, xlim=c(0,150), ylim=c(0,150))
+points(pop[,1], pop[,2], pch=19, cex=0.5)
 
 #allow individuals to move within landscape
 
