@@ -17,4 +17,11 @@ Mig = function(nindv, pop, move, nsteps, elevation){
   return(pop)
 }
 
-
+#notes on how I would like this to run 
+  #first, I would like to print xpeak and ypeak from LandscapeInit.R
+    #this will allow me to know where the butterflies should move to
+  #then, in Move.R, create a for loop for 1:nindv so that you iterate over each individual
+  #add in an if/then statement so if they are not at elevation, they move up
+    #if at ypeak, then simulation stops and goes to next individual
+    #individuals would need to go from 0:nsteps, as they cant go over the number of steps
+  #output ??
