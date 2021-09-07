@@ -18,5 +18,7 @@ LandscapeInit = function(elevation){
   for(r in (xpeak+1):landscape){
     land[r,] = land[(r-1),] - round(rnorm(landscape, 5, 1), 0)
   }
+  list <- list(c(xpeak,ypeak))
+  print(list)
   return(land)
 }
