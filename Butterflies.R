@@ -27,8 +27,25 @@ points(pop[,1]/150, pop[,2]/150, pch=19, cex=0.5)
 #points(pop[,1], pop[,2], pch=19, cex=0.5) #puts points on own fig
 
 #allow individuals to move within landscape
+paths = NULL
+for(i in 1:nindv){
+  indv = pop[i,,drop = FALSE]
+  
+  #chart movement
+  movepath = Move(nindv, land, move, nsteps, elevation)
+  
+  #plot movement
+  lines(movepath[seq(1,length(movepath), 2)]/150, movepath[seq(2,length(movepath), 2)]/150, lwd = 2)
+  
+  #record path in single object for all indv
+  paths = rbind(paths, movepath)
+}
+
+rownames(paths) = seq(1, nindvs, 1)
 
 #extract needed output from simulation
+
+#for this project, we will not be doing any stats, but export something (like a figure) to see how the model worked
 
  
 
