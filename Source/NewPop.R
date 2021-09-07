@@ -1,6 +1,6 @@
 #NewPop to get individuals put on the landscape
 NewPop = function(nindv, landscape){
-  variance = 125 #cells 
+  variance = 50 #cells 
   #x = sample(0:variance,1)
   #y = sample(0:variance,1)
   
@@ -13,8 +13,9 @@ NewPop = function(nindv, landscape){
   
   return(pop)
 }
-XX
+#XX
 
-x
-y
-pop[,1]
+#x
+#y
+#pop[,1]
+#plot(pop[,1],pop[,2],xlim=c(0,150), ylim=c(0,150))
