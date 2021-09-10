@@ -45,16 +45,12 @@ for(i in 1:nindv){
 }
 
 rownames(paths) = seq(1, nindv, 1)
-#save.image()
 
 #extract needed output from simulation
-#png(filename="butterflycorridors.png")
-#plot(butterflycorridors)
+#for this project, we will not be doing any stats, but export something (like a figure) to see how the model worked
 dev.copy(png, "../Output/butterflypaths.png")
 dev.off()
 
-#for this project, we will not be doing any stats, but export something (like a figure) to see how the model worked
-
+#to write a table with the x, y coordinates use the code below
 #write.table(pop, paste(directory, "/output/testpop2.txt", sep=""), sep="/t", col.names=F, row.names=F)
 
-#save.image(paste(directory, "/Output/paths4.rds", sep=""))
