@@ -14,6 +14,7 @@ nindv     = 50            #number of individuals to simulate
 nsteps    = 500           #number of steps an individual can take
 move      = 0.8           #decimal likelihood of individual moving to highest neighbor patch (R&G call this q)
 
+#pdf(file = "/Output/butterflies2.pdf", width = 5, height = 5, onefile = T)
 #init landscape
 land = LandscapeInit(elevation)
 image(land)
@@ -21,6 +22,8 @@ image(land)
 #init individuals on landscape
 pop = NewPop(nindv, landscape)
 points(pop[,1]/150, pop[,2]/150, pch=19, cex=0.5)
+dev.copy(png, "../Output/indvlocation.png")
+dev.off()
 
 #pop = rbind(pop,NewPop(nindv,landscape)) #this will add the different NewPops together
 #plot(-100,-100, xlim=c(0,150), ylim=c(0,150))  #this puts the points on its own figure (note 0-150 axes)
@@ -41,11 +44,17 @@ for(i in 1:nindv){
   paths = rbind(paths, movepath)
 }
 
-rownames(paths) = seq(1, nindvs, 1)
+rownames(paths) = seq(1, nindv, 1)
+#save.image()
 
 #extract needed output from simulation
+#png(filename="butterflycorridors.png")
+#plot(butterflycorridors)
+dev.copy(png, "../Output/butterflypaths.png")
+dev.off()
 
 #for this project, we will not be doing any stats, but export something (like a figure) to see how the model worked
 
- 
+#write.table(pop, paste(directory, "/output/testpop2.txt", sep=""), sep="/t", col.names=F, row.names=F)
 
+#save.image(paste(directory, "/Output/paths4.rds", sep=""))
