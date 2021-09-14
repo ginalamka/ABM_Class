@@ -13,7 +13,7 @@ landscape.V = 150           #number of patches on each side, total patch number 
 nindv.V     = 50            #number of individuals to simulate
 nsteps.V    = 500           #number of steps an individual can take
 move.V      = 0.8           #decimal likelihood of individual moving to highest neighbor patch (R&G call this q)
-reps        = 1
+reps        = 1             #number of times the simmulation is replicated. can increase this for more simulations (5, 10, 100 times)
 
 parameters = expand.grid(elevation.V, landscape.V, nindv.V, nsteps.V, move.V)
 colnames(parameters) = c("elevation", "landscape", "nindv", "nsteps", "move")
