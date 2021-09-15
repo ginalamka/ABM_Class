@@ -27,6 +27,11 @@ for(p in 1:nrow(parameters)){
   move      = parameters$move[p]
   
   for(r in 1:reps){
+    #another way to paste, put at top of script, not bottom
+    #**MAKE SURE dev.off() is still there at the end!!!***
+    #pdf(paste(directory, "/Output/butterflypath_", r, ".pdf", sep=""), width=8, height=8) 
+    #notice the _, r, .pdf syntax makes it so you dont overwrite each figure
+    
     #init landscape
     land = LandscapeInit(elevation)
     image(land)
@@ -53,7 +58,7 @@ for(p in 1:nrow(parameters)){
       lines(movepath[seq(1,length(movepath), 2)]/150, movepath[seq(2,length(movepath), 2)]/150, lwd = 2)
       
       #record path in single object for all indv
-      paths = rbind(paths, movepath)
+      paths = rbind(paths, movepath) #save cooridantes into "paths"
     }
     
     rownames(paths) = seq(1, nindv, 1)
@@ -64,9 +69,8 @@ for(p in 1:nrow(parameters)){
     dev.off()
     
     #to write a table with the x, y coordinates use the code below
-    #write.table(pop, paste(directory, "/output/testpop2.txt", sep=""), sep="/t", col.names=F, row.names=F)
+    #write.table(paths, paste(directory, "/Output/buttpath_", r, ".csv", sep=""), sep="/t", col.names=F, row.names=F)
     
   }
 
 }
-
